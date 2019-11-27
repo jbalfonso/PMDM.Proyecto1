@@ -33,7 +33,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="20dp"
-        android:hint="@string/nombre"
+        android:hint="@string/nombrePedido"
 
         />
 

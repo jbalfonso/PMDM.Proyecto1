@@ -9,7 +9,7 @@
     <string name="elegir_cantidad_porciones">Elegir cantidad porciones:</string>
     <string name="precio_total">Precio Total:</string>
     <string name="precio">precio</string>
-    <string name="nombre">Nombre</string>
+    <string name="nombrePedido">Nombre</string>
     <string name="elija_tipo_de_pago">Elija tipo de Pago:</string>
     <string name="introduzca_numero_de_tarjeta">Introduzca numero de tarjeta</string>
     <string name="introduzca_caducidad">Introduzca caducidad</string>

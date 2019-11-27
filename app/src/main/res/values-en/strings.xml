@@ -6,7 +6,7 @@
     <string name="agua">Water</string>
     <string name="coca_cola">Coca Cola</string>
     <string name="elegir_cantidad_porciones">Choose quantity in portions</string>
-    <string name="nombre">Name</string>
+    <string name="nombrePedido">Name</string>
     <string name="pizza_time">Pizza Time</string>
     <string name="precio">Price</string>
     <string name="precio_total">Total price:</string>
