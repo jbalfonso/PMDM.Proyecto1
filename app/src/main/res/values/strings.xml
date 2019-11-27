@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PMDM.Proyecto1</string>
+    <string name="pizza_time">Pizza Time</string>
+    <string name="carbonara">Carbonara</string>
+    <string name="romana">Romana</string>
+    <string name="barbacoa">Barbacoa</string>
+    <string name="coca_cola">Coca Cola</string>
+    <string name="agua">Agua</string>
+    <string name="elegir_cantidad_porciones">Elegir cantidad porciones:</string>
+    <string name="precio_total">Precio Total:</string>
+    <string name="precio">precio</string>
+    <string name="nombre">Nombre</string>
+    <string name="elija_tipo_de_pago">Elija tipo de Pago:</string>
+    <string name="introduzca_numero_de_tarjeta">Introduzca numero de tarjeta</string>
+    <string name="introduzca_caducidad">Introduzca caducidad</string>
+    <string name="introduzca_codigo_seguridad">Introduzca codigo seguridad</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="pagina">pagina web</string>
+    <string name="version">Version</string>
+    <string name="web">Web</string>
+    <string name="titulo">Titulo</string>
+    <string name="pagar">pagar</string>
+    <string name="enviar">enviar</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ResumenDelPedido">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@android:color/holo_blue_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/pizza_time"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayoutResumen_Pedido"
+        android:background="#3B0288D1">
+<TextView
+    android:id="@+id/txvresumenPedido"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Resumen del pedido:"
+    style="@style/EstiloTexto"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/btnFormularioPago"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/enviar"
+            android:textColor="@android:color/white"
+            android:background="#388E3C"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:text="@string/cancelar"
+            android:textColor="@android:color/white"
+            android:background="#D32F2F"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

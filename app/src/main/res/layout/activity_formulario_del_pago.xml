@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FormularioDelPago">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@android:color/holo_blue_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/pizza_time"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Texto SUPERIOR-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            style="@style/EstiloTexto"
+            android:text="@string/elija_tipo_de_pago" />
+
+
+    </LinearLayout>
+
+    <!--Imagenes-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/visa" />
+        <ImageView
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/mastercard"/>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/euro6000"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/visa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp" />
+
+
+            <RadioButton
+                android:id="@+id/mastercard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="95dp"
+
+                />
+
+            <RadioButton
+                android:id="@+id/euro6000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                />
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/introduzca_numero_de_tarjeta"
+            style="@style/EstiloTexto"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:maxLength="16"
+            android:inputType="number"
+            android:id="@+id/numerotarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/introduzca_caducidad"
+            style="@style/EstiloTexto"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:maxLength="4"
+            android:inputType="number"
+            android:id="@+id/caducidadtarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/introduzca_codigo_seguridad"
+            style="@style/EstiloTexto"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:maxLength="3"
+            android:inputType="number"
+            android:id="@+id/codigoSeguridad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/BotonPagar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pagar"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            style="@style/EstiloBotones"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</LinearLayout>

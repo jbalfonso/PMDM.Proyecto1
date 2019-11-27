@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/titulo"
+
+        app:showAsAction="always">
+    </item>
+    <item android:id="@+id/Web"
+        android:title="@string/web"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:title="Autor"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:title="Juan Bautista Alfonso" />
+            <item
+                android:title="@string/version" />
+
+        </menu>
+    </item>
+
+</menu>

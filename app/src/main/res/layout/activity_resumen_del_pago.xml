@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ResumenDelPago">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@android:color/holo_blue_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/pizza_time"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linarLayoutResumen_Pago"
+        android:background="#3B0288D1">
+
+        <TextView
+            android:id="@+id/txvresumenPago"
+            style="@style/EstiloTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Resumen del pago:"
+            android:textSize="23dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/btnAceptarPago"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+
+            android:text="@string/pagar"
+            android:textColor="@android:color/white"
+            style="@style/EstiloBotones"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancelarPago"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+
+            android:text="@string/aceptar"
+            android:textColor="@android:color/white"
+            android:background="#388E3C"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
