@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MiViewHolder> {
-private ArrayList<Pedido> lista;
+    private ArrayList<Pedido> lista;
 
+    public PedidoAdapter(ArrayList<Pedido> lista){this.lista=lista;}
 
     @NonNull
     @Override
-    public MiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from());
+    public PedidoAdapter.MiViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        View view = inflater.inflate(R.layout.elementoslista, viewGroup, false);
         MiViewHolder miViewHolder = new MiViewHolder(view);
 
         return miViewHolder;
@@ -25,23 +27,31 @@ private ArrayList<Pedido> lista;
 
     @Override
     public void onBindViewHolder(@NonNull MiViewHolder holder, int position) {
+        String nombre = lista.get(position).getNombrePedido();
+        holder.nombretextView.setText(nombre);
 
+        double precio = lista.get(position).getPrecioPedido();
+        holder.preciotextView.setText(String.valueOf(precio));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (lista == null)
+            return 0;
+        else
+            return lista.size();
+
     }
 
     public static class MiViewHolder extends RecyclerView.ViewHolder {
-    public TextView nombretextView;
-    public TextView apariciontextView;
+        public TextView nombretextView;
+        public TextView preciotextView;
 
-    public MiViewHolder(View view) {
-        super(view);
+        public MiViewHolder(View view) {
+            super(view);
 
-        nombretextView = itemView.findViewById(R.id.nombrePedidoTextView);
-        apariciontextView = itemView.findViewById(R.id.precioPedidoTextView);
+            nombretextView = itemView.findViewById(R.id.nombrePedidoTextView);
+            preciotextView = itemView.findViewById(R.id.precioPedidoTextView);
+        }
     }
-}
 }

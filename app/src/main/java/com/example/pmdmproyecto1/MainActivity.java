@@ -6,21 +6,27 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private String url = "https://pizzatime2dam.herokuapp.com/";
-    private double precioCarbonara = 3.50;
-    private double precioRomana = 4.50;
-    private double precioBarbacoa = 5.50;
-    private double precioAgua = 1;
-    private double precioCocacola = 1.50;
+    private final static double precioCarbonara = 3.50;
+    private final static double precioRomana = 4.50;
+    private final static double precioBarbacoa = 5.50;
+    private final static double precioAgua = 1;
+    private final static double precioCocacola = 1.50;
+
     private double precioTotal_var = 0;
     private boolean bolagua = true;
     private boolean bolcocacola = true;
@@ -30,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private double totalpizza = 0;
     private double totalbebida = 0;
 
+    private ArrayList<Pedido> listadoPedidos = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         final ImageButton carbonara = findViewById(R.id.btnCarbonara);
         final ImageButton barbacoa = findViewById(R.id.btnBarbacoa);
         final ImageButton romana = findViewById(R.id.btnRomana);
@@ -41,16 +50,16 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton cocacola = findViewById(R.id.btnCocaCola);
         final EditText nombreusuario = findViewById(R.id.nombreUsuario);
         final TextView cantidad = findViewById(R.id.txtvcantidad);
-        cantidad.setText(String.valueOf(cantidadPorciones));
         final TextView precioTotal = findViewById(R.id.txvprecioTotal);
 
-
+        cantidad.setText(String.valueOf(cantidadPorciones));
         precioTotal.setText(String.valueOf(0));
 
 
         Button menos = findViewById(R.id.btnMenos);
         Button mas = findViewById(R.id.btnMas);
-        Button enviar = findViewById(R.id.btnEnviar);
+        /* Button enviar = findViewById(R.id.btnEnviar);*/
+        Button añadir = findViewById(R.id.Añadir);
 
 
         carbonara.setOnClickListener(new View.OnClickListener() {
@@ -76,13 +85,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cantidadPorciones = 1;
                 cantidad.setText(String.valueOf(cantidadPorciones));
-               /* if (bebidaid==1){
-                    precioTotal_var += precioAgua;
-                }else if (bebidaid==2){
-                    precioTotal_var+=precioCocacola;
-                }else{
-                    precioTotal_var=0;
-                }*/
+
                 int color = Color.parseColor("#b0deff");
                 barbacoa.setBackgroundColor(color);
                 carbonara.setBackgroundColor(0);
@@ -98,13 +101,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 cantidadPorciones = 1;
                 cantidad.setText(String.valueOf(cantidadPorciones));
-               /* if (bebidaid==1){
-                    precioTotal_var += precioAgua;
-                }else if (bebidaid==2){
-                    precioTotal_var+=precioCocacola;
-                }else{
-                    precioTotal_var=0;
-                }*/
+
 
                 int color = Color.parseColor("#b0deff");
                 romana.setBackgroundColor(color);
@@ -119,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         agua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // bolcocacola = true;
+
                 totalbebida = precioAgua;
                 int color = Color.parseColor("#b0ceff");
                 agua.setBackgroundColor(color);
@@ -129,11 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 cantidad.setText(String.valueOf(cantidadPorciones));
                 precioTotal_var = totalpizza + totalbebida;
                 precioTotal.setText(String.valueOf(precioTotal_var));
-               /* if (bolagua) {
-                    precioTotal_var += precioAgua;
-                    precioTotal.setText(String.valueOf(precioTotal_var));
-                    bolagua = false;
-                }*/
 
 
             }
@@ -142,10 +134,7 @@ public class MainActivity extends AppCompatActivity {
         cocacola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //   bolagua = true;
-              /*  if (bebidaid == 1) {
-                    totalbebida -= precioAgua;
-                }*/
+
                 totalbebida = precioCocacola;
                 int color = Color.parseColor("#b0ceff");
                 cocacola.setBackgroundColor(color);
@@ -155,11 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 cantidad.setText(String.valueOf(cantidadPorciones));
                 precioTotal_var = totalpizza + totalbebida;
                 precioTotal.setText(String.valueOf(precioTotal_var));
-             /*   if (bolcocacola) {
-                    precioTotal_var += precioCocacola;
-                    precioTotal.setText(String.valueOf(precioTotal_var));
-                    bolcocacola = false;
-                }*/
+
 
             }
         });
@@ -169,13 +154,7 @@ public class MainActivity extends AppCompatActivity {
                 if (cantidadPorciones >= 1) {
                     cantidadPorciones--;
                     cantidad.setText(String.valueOf(cantidadPorciones));
-                   /* if (pizzaid == 1) {
-                        precioTotal_var -= precioCarbonara;
-                    } else if (pizzaid == 2) {
-                        precioTotal_var -= precioBarbacoa;
-                    } else if (pizzaid == 3) {
-                        precioTotal_var -= precioRomana;
-                    }*/
+
                     precioTotal_var = totalpizza * cantidadPorciones;
                     precioTotal_var += totalbebida;
                     precioTotal.setText(String.valueOf(precioTotal_var));
@@ -189,20 +168,14 @@ public class MainActivity extends AppCompatActivity {
                 if (cantidadPorciones < 100) {
                     cantidadPorciones++;
                     cantidad.setText(String.valueOf(cantidadPorciones));
-                    /*if (pizzaid == 1) {
-                        precioTotal_var += precioCarbonara;
-                    } else if (pizzaid == 2) {
-                        precioTotal_var += precioBarbacoa;
-                    } else if (pizzaid == 3) {
-                        precioTotal_var += precioRomana;
-                    }*/
+
                     precioTotal_var = totalpizza * cantidadPorciones;
                     precioTotal_var += totalbebida;
                     precioTotal.setText(String.valueOf(precioTotal_var));
                 }
             }
         });
-        enviar.setOnClickListener(new View.OnClickListener() {
+       /* enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentAct1 = new Intent(MainActivity.this, ResumenDelPedido.class);
@@ -229,8 +202,62 @@ public class MainActivity extends AppCompatActivity {
                 intentAct1.putExtra("preciototal", String.valueOf(precioTotal_var));
                 startActivity(intentAct1);
             }
+        });*/
+        añadir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Pizza pizza = new Pizza(devuelveNombrePizza(), cantidadPorciones, totalpizza);
+                Bebida bebida = new Bebida(devuelveNombreBebida(), totalbebida);
+                String nombrePedido = "Pedido " + nombreusuario.getText() + String.valueOf(listadoPedidos.size() + 1);
+
+                Pedido pedido = new Pedido(pizza, bebida, nombrePedido);
+
+                    listadoPedidos.add(pedido);
+
+                    agua.setBackgroundColor(0);
+                    cocacola.setBackgroundColor(0);
+                    carbonara.setBackgroundColor(0);
+                    barbacoa.setBackgroundColor(0);
+                    romana.setBackgroundColor(0);
+                    pizzaid=0;
+                    bebidaid=0;
+                    precioTotal_var=0;
+                    totalbebida=0;
+                    totalpizza=0;
+                    precioTotal.setText(String.valueOf(precioTotal_var));
+                    cantidadPorciones=0;
+                    cantidad.setText(String.valueOf(cantidadPorciones));
+                    Toast.makeText(MainActivity.this, listadoPedidos.get(0).toString(), Toast.LENGTH_LONG).show();
+
+
+            }
         });
     }
+
+
+    public String devuelveNombrePizza() {
+        String nombrepizza = " ";
+        if (pizzaid == 1) {
+            nombrepizza = "Carbonara";
+        } else if (pizzaid == 2) {
+            nombrepizza = "Barbacoa";
+        } else if (pizzaid == 3) {
+            nombrepizza = "Romana";
+        }
+        return nombrepizza;
+    }
+
+    public String devuelveNombreBebida() {
+        String nombrebebida = " ";
+        if (bebidaid == 1) {
+            nombrebebida = "Agua";
+        } else if (bebidaid == 2) {
+            nombrebebida = "Cocacola";
+        }
+        return nombrebebida;
+    }
+
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         boolean bol = false;

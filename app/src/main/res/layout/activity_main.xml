@@ -213,11 +213,13 @@
             <Button
                 style="@style/EstiloBotones"
                 android:layout_width="70dp"
-                android:id="@+id/btnEnviar"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
                 android:background="#388E3C"
-                android:text="@string/enviar" />
+                android:id="@+id/Añadir"
+                android:text="Añadir" />
+<!--            android:id="@+id/btnEnviar"-->
+
 
 
         </LinearLayout>
