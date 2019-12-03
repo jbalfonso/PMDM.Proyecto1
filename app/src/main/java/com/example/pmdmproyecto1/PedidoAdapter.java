@@ -32,6 +32,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MiViewHold
 
         double precio = lista.get(position).getPrecioPedido();
         holder.preciotextView.setText(String.valueOf(precio));
+
     }
 
     @Override

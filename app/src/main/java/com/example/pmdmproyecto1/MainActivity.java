@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         Button mas = findViewById(R.id.btnMas);
         /* Button enviar = findViewById(R.id.btnEnviar);*/
         Button añadir = findViewById(R.id.Añadir);
+        Button listar = findViewById(R.id.listar);
+
 
 
         carbonara.setOnClickListener(new View.OnClickListener() {
@@ -212,24 +214,33 @@ public class MainActivity extends AppCompatActivity {
 
                 Pedido pedido = new Pedido(pizza, bebida, nombrePedido);
 
-                    listadoPedidos.add(pedido);
+                listadoPedidos.add(pedido);
 
-                    agua.setBackgroundColor(0);
-                    cocacola.setBackgroundColor(0);
-                    carbonara.setBackgroundColor(0);
-                    barbacoa.setBackgroundColor(0);
-                    romana.setBackgroundColor(0);
-                    pizzaid=0;
-                    bebidaid=0;
-                    precioTotal_var=0;
-                    totalbebida=0;
-                    totalpizza=0;
-                    precioTotal.setText(String.valueOf(precioTotal_var));
-                    cantidadPorciones=0;
-                    cantidad.setText(String.valueOf(cantidadPorciones));
-                    Toast.makeText(MainActivity.this, listadoPedidos.get(0).toString(), Toast.LENGTH_LONG).show();
+                agua.setBackgroundColor(0);
+                cocacola.setBackgroundColor(0);
+                carbonara.setBackgroundColor(0);
+                barbacoa.setBackgroundColor(0);
+                romana.setBackgroundColor(0);
+                pizzaid = 0;
+                bebidaid = 0;
+                precioTotal_var = 0;
+                totalbebida = 0;
+                totalpizza = 0;
+                precioTotal.setText(String.valueOf(precioTotal_var));
+                cantidadPorciones = 0;
+                cantidad.setText(String.valueOf(cantidadPorciones));
+                Toast.makeText(MainActivity.this, String.valueOf(listadoPedidos.size()), Toast.LENGTH_LONG).show();
 
 
+            }
+        });
+        listar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentAct1 = new Intent(MainActivity.this, Listar.class);
+
+                intentAct1.putExtra("listaPedidos",listadoPedidos);
+                startActivity(intentAct1);
             }
         });
     }

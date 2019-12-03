@@ -1,6 +1,8 @@
 package com.example.pmdmproyecto1;
 
-public class Pizza {
+import java.io.Serializable;
+
+public class Pizza implements Serializable {
     private String nombre;
     private int cantidadPorciones;
     private double precio;
@@ -33,5 +35,14 @@ public class Pizza {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "nombre='" + nombre + '\'' +
+                ", cantidadPorciones=" + cantidadPorciones +
+                ", precio=" + precio +
+                '}';
     }
 }
