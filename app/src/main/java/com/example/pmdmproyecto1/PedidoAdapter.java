@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MiViewHolder> {
     private ArrayList<Pedido> lista;
-
+    private View.OnClickListener onClickListener;
     public PedidoAdapter(ArrayList<Pedido> lista){this.lista=lista;}
 
     @NonNull
@@ -20,6 +20,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MiViewHold
     public PedidoAdapter.MiViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.elementoslista, viewGroup, false);
+        view.setOnClickListener(this.onClickListener);
         MiViewHolder miViewHolder = new MiViewHolder(view);
 
         return miViewHolder;
@@ -54,5 +55,8 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MiViewHold
             nombretextView = itemView.findViewById(R.id.nombrePedidoTextView);
             preciotextView = itemView.findViewById(R.id.precioPedidoTextView);
         }
+    }
+    public void setOnItemClickListener(View.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 }
