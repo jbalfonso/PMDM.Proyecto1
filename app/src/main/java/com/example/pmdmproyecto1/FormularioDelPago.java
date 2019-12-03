@@ -10,9 +10,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class FormularioDelPago extends AppCompatActivity {
-   private String datos=" ";
-   private String nombrecliente=" ";
+   private ArrayList<Pedido> listadoPedidos = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +21,7 @@ public class FormularioDelPago extends AppCompatActivity {
         Bundle parametrosTotal = getIntent().getExtras();
         Button pagar = findViewById(R.id.BotonPagar);
 
-        if(parametrosTotal !=null){
-
-
-            datos=parametrosTotal.getString("datos");
-            nombrecliente=parametrosTotal.getString("nombre");
-        }
+        listadoPedidos = (ArrayList<Pedido>) getIntent().getSerializableExtra("listaPedidos");
         pagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,12 +40,11 @@ public class FormularioDelPago extends AppCompatActivity {
                 }else if(euro6000.isChecked()){
                     id="euro6000";
                 }
-                intentact3.putExtra("tipotarjeta",id);
-                intentact3.putExtra("datos",datos);
-                intentact3.putExtra("numerotarjeta",numeroTarjeta.getText().toString());
-                intentact3.putExtra("caducidad",caducidad.getText().toString());
-                intentact3.putExtra("seguridad",seguridad.getText().toString());
-                intentact3.putExtra("nombrecliente", nombrecliente);
+                Tarjeta tarjeta = new Tarjeta(numeroTarjeta.getText().toString(),id,caducidad.getText().toString(),seguridad.getText().toString());
+
+                intentact3.putExtra("datos",listadoPedidos);
+                intentact3.putExtra("tarjeta",tarjeta);
+
                 startActivity(intentact3);
             }
         });

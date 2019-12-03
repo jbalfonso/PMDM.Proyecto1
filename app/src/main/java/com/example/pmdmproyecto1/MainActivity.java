@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         /* Button enviar = findViewById(R.id.btnEnviar);*/
         Button añadir = findViewById(R.id.Añadir);
         Button listar = findViewById(R.id.listar);
-
+        Button pagar = findViewById(R.id.pagarPedidos);
 
 
         carbonara.setOnClickListener(new View.OnClickListener() {
@@ -241,6 +241,14 @@ public class MainActivity extends AppCompatActivity {
 
                 intentAct1.putExtra("listaPedidos",listadoPedidos);
                 startActivity(intentAct1);
+            }
+        });
+        pagar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPagar = new Intent(MainActivity.this, FormularioDelPago.class);
+                intentPagar.putExtra("listaPedidos",listadoPedidos);
+                startActivity(intentPagar);
             }
         });
     }
