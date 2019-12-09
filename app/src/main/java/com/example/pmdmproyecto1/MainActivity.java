@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
        // final EditText nombreusuario = findViewById(R.id.nombreUsuario);
         final TextView cantidad = findViewById(R.id.txtvcantidad);
         final TextView precioTotal = findViewById(R.id.txvprecioTotal);
-
+ String prueba;
         cantidad.setText(String.valueOf(cantidadPorciones));
         precioTotal.setText(String.valueOf(0));
 
