@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private double totalpizza = 0;
     private double totalbebida = 0;
 
+    TextView texto;
+
     private ArrayList<Pedido> listadoPedidos = new ArrayList<>();
 
     @Override
@@ -43,18 +45,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        texto = findViewById(R.id.textViewNombreMain);
         final ImageButton carbonara = findViewById(R.id.btnCarbonara);
         final ImageButton barbacoa = findViewById(R.id.btnBarbacoa);
         final ImageButton romana = findViewById(R.id.btnRomana);
         final ImageButton agua = findViewById(R.id.btnAgua);
         final ImageButton cocacola = findViewById(R.id.btnCocaCola);
-        final EditText nombreusuario = findViewById(R.id.nombreUsuario);
+       // final EditText nombreusuario = findViewById(R.id.nombreUsuario);
         final TextView cantidad = findViewById(R.id.txtvcantidad);
         final TextView precioTotal = findViewById(R.id.txvprecioTotal);
 
         cantidad.setText(String.valueOf(cantidadPorciones));
         precioTotal.setText(String.valueOf(0));
 
+        Button botonAñadir = findViewById(R.id.botonAñadirNombreMain);
+
+        botonAñadir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentDialogo fragmentDialogo = new FragmentDialogo();
+                fragmentDialogo.show(getSupportFragmentManager(),"DialogoFragment");
+            }
+        });
 
         Button menos = findViewById(R.id.btnMenos);
         Button mas = findViewById(R.id.btnMas);
@@ -210,7 +222,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Pizza pizza = new Pizza(devuelveNombrePizza(), cantidadPorciones, totalpizza);
                 Bebida bebida = new Bebida(devuelveNombreBebida(), totalbebida);
-                String nombrePedido = "Pedido " + nombreusuario.getText() + String.valueOf(listadoPedidos.size() + 1);
+                //String nombrePedido = "Pedido " + nombreusuario.getText() + String.valueOf(listadoPedidos.size() + 1);
+                String nombrePedido = "Pedido " +  String.valueOf(listadoPedidos.size() + 1);
 
                 Pedido pedido = new Pedido(pizza, bebida, nombrePedido);
 
